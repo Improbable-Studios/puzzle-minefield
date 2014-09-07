@@ -15,16 +15,23 @@ function OnCollisionEnter2D (c : Collision2D){
 	}
 }
 
-/*
 function OnMouseDown () {
+
+    Debug.Log("This is a " + this.tag.ToString() );
+
+    //do nothing if its already a bomb !
+    if (GetComponent(SpriteRenderer).sprite == bomb) 
+    {
+      return;
+    }
+
 	isFlagged = !isFlagged;
 	if(isFlagged){
 		GetComponent(SpriteRenderer).sprite = flag;
-		transform.gameObject.tag = "flag";
+		gameObject.tag = "flag";
 		}
 	else {
 		GetComponent(SpriteRenderer).sprite = tile;
-		transform.gameObject.tag = "bomb";
+		gameObject.tag = "bomb";
 		}
 }
-*/

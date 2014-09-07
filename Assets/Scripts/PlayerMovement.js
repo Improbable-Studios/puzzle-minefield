@@ -92,7 +92,20 @@ function OnGUI () {
 }
 
 function OnCollisionEnter2D (c : Collision2D){
+
+    Debug.Log("Collision on a " + c.gameObject.tag.ToString() );
+
+	if(c.gameObject.tag == "flag"){
+	  var btile : Bomb = c.gameObject.GetComponent(Bomb);
+	  if (btile.isFlagged)
+	  {
+	    Debug.Log("a Flag!!");
+	    endPosition = startPosition;	  
+	  } 
+    }
+
 	if(c.gameObject.tag == "bomb"){
+	
 	    timer = 1.0f;
 		Time.timeScale = 0.01;
 		yield WaitForSeconds(0.02);
@@ -112,7 +125,7 @@ function OnCollisionEnter2D (c : Collision2D){
 		  var sr : SpriteRenderer = GetComponent(SpriteRenderer);
 		  sr.enabled = false;
 	    }
-	    //Debug.Log("Tries left: " + triesLeft);
+	  //Debug.Log("Tries left: " + triesLeft);
 	}
 	if(c.gameObject.tag == "Wall") {
 	  //Debug.Log("isa Wall!");
@@ -121,6 +134,18 @@ function OnCollisionEnter2D (c : Collision2D){
 	if(c.gameObject.tag == "Goal") {
 	  //Debug.Log("I AM GROOT!");
 	  endPosition = startPosition;	  
+	}
+	if(c.gameObject.tag == "tile" ||
+	   c.gameObject.tag == "Number1" || 
+	   c.gameObject.tag == "Number2" ||
+	   c.gameObject.tag == "Number3" ) {
+	
+	  var tile : Tile = c.gameObject.GetComponent(Tile);
+	  if (tile.isFlagged)
+	  {
+	    Debug.Log("a Flag!!");
+	    endPosition = startPosition;	  
+	  }
 	}
 	
 }

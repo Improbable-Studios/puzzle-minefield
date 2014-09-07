@@ -26,6 +26,18 @@ function OnCollisionEnter2D (c : Collision2D){
 }
 
 function OnMouseDown () {
+
+
+    Debug.Log("This is a " + this.tag.ToString() );
+
+    //do nothing if its already visible !
+    if (GetComponent(SpriteRenderer).sprite == num1 ||
+        GetComponent(SpriteRenderer).sprite == num2 ||
+        GetComponent(SpriteRenderer).sprite == num3) 
+    {
+      return;
+    }
+
 	isFlagged = !isFlagged;
 	if(isFlagged){
 		GetComponent(SpriteRenderer).sprite = flag;
