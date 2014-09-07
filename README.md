@@ -1,4 +1,4 @@
 puzzle-minefield
 ================
 
-This is the MineField Puzzle Repository
+This is the Sherlock MineField Puzzle Repository
